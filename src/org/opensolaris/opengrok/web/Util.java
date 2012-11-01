@@ -500,7 +500,8 @@ public final class Util {
                 out.write(closeQuotedTag);
             }
             StringBuilder buf = new StringBuilder();
-            htmlize(r, buf);
+            /* Print only the first 7 characters of the revision: */
+            htmlize(r.length() <= 7 ? r : r.substring(0, 7), buf);
             out.write(buf.toString());
             buf.setLength(0);
             if (enabled) {
